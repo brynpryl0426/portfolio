@@ -54,7 +54,7 @@ function ProfileCard() {
 
 export function Description() {
     return (
-        <div id="description" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div id="description" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-4">About Me</h2>
                 <p className="text-lg text-gray-500">

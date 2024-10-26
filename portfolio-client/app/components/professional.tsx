@@ -27,7 +27,7 @@ export function Skills() {
     ]
 
     return (
-        <div id="skills" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div id="skills" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
                     <Code className="mr-2" />
@@ -133,7 +133,7 @@ export function Projects() {
         : projects.filter(project => project.category === activeCategory)
 
     return (
-        <div id="projects" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div id="projects" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8">My Projects</h2>
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
