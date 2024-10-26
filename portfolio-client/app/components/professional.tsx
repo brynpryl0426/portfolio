@@ -1,5 +1,5 @@
 import { CodeIcon, GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
-import { BriefcaseIcon, Mail } from "lucide-react"
+import { BriefcaseIcon, Code, Mail } from "lucide-react"
 import { useState } from 'react'
 
 export function Skills() {
@@ -30,7 +30,7 @@ export function Skills() {
         <div id="skills" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
-                    <CodeIcon className="mr-2" />
+                    <Code className="mr-2" />
                     Skills
                 </h2>
                 <div className="space-y-8">

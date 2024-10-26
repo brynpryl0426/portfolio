@@ -6,13 +6,6 @@ import { Header } from "~/components/header";
 import { Contact, Projects, Skills, WorkExperience } from "~/components/professional";
 import { Description, Education, Hero } from "~/components/profile";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
-
 export default function Index() {
   
   const [isMenuOpen, setIsMenuOpen] = useState(false)
