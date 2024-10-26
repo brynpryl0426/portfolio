@@ -5,7 +5,7 @@ import { GraduationCap } from "lucide-react"
 
 export function Hero() {
     return (
-        <div id="home" className="bg-white">
+        <div id="home" className="bg-background">
             <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                     <div className="md:col-span-2">
@@ -28,7 +28,7 @@ export function Hero() {
 
 function ProfileCard() {
     return (
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-background p-6 rounded-lg shadow-md">
             <img
                 src="/bryn.jpg"
                 style={{ height: "150px", width: "150px", objectFit: "cover" }}
@@ -84,7 +84,7 @@ export function Education() {
     ]
 
     return (
-        <div id="education" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div id="education" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
                     <GraduationCap className="mr-2" />

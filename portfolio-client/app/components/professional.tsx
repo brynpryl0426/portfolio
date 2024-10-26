@@ -90,7 +90,7 @@ export function WorkExperience() {
     ]
 
     return (
-        <div id="experience" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div id="experience" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
                     <BriefcaseIcon className="mr-2" />
@@ -143,7 +143,7 @@ export function Projects() {
                             onClick={() => setActiveCategory(category)}
                             className={`px-4 py-2 rounded-full ${activeCategory === category
                                 ? 'bg-indigo-600 text-white'
-                                : 'bg-white text-gray-700 hover:bg-gray-100'
+                                : 'bg-background text-gray-700 hover:bg-gray-100'
                                 }`}
                         >
                             {category}
@@ -152,7 +152,7 @@ export function Projects() {
                 </div>
                 <div className="grid gap-8 grid-cols-1 sm:grid-cols-2  lg:grid-cols-3">
                     {filteredProjects.map((project) => (
-                        <div key={project.id} className="bg-white overflow-hidden shadow rounded-lg">
+                        <div key={project.id} className="bg-background overflow-hidden shadow rounded-lg">
                             <div className="p-6">
                                 <h3 className="text-lg font-medium text-gray-900">{project.title}</h3>
                                 <p className="mt-2 text-sm text-gray-500">{project.description}</p>
@@ -172,7 +172,7 @@ export function Projects() {
 
 export function Contact() {
     return (
-        <div id="contact" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div id="contact" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-8">Contact Me</h2>
                 <div className="flex flex-col items-center justify-center space-y-4">
