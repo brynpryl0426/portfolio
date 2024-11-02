@@ -1,9 +1,10 @@
 "use client"
 
 import { GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons"
-import { GraduationCap } from "lucide-react"
+import { Check, Copy, GraduationCap, Mail } from "lucide-react"
 
 import "../css/profile.css"
+import { useEffect, useRef, useState } from "react"
 
 export function Hero() {
     return (
@@ -29,6 +30,37 @@ export function Hero() {
 }
 
 function ProfileCard() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isCopied, setIsCopied] = useState(false)
+    const emailRef = useRef(null)
+
+    const email = "brynprylbandiola@gmail.com" // Replace with your actual email
+
+    const openModal = () => setIsModalOpen(true)
+    const closeModal = () => setIsModalOpen(false)
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(email).then(() => {
+            setIsCopied(true)
+            setTimeout(() => setIsCopied(false), 2000) // Reset copied state after 2 seconds
+        })
+    }
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                closeModal()
+            }
+        }
+
+        if (isModalOpen) {
+            document.addEventListener('keydown', handleKeyDown)
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [isModalOpen])
     return (
         <div className="bg-card p-6 rounded-lg shadow-md">
             <img
@@ -40,16 +72,61 @@ function ProfileCard() {
             <h2 className="text-foreground-2 text-xl font-semibold text-center mb-2">Brynpryl P. Bandiola</h2>
             <p className="text-foreground-3 text-center mb-4">Full Stack Developer</p>
             <div className="flex justify-center space-x-4">
-                <a href="#" className="text-gray-400 hover:text-gray-600">
+                <a href="https://github.com/brynpryl0426" className="text-gray-400 hover:text-gray-600" target="_blank">
                     <GitHubLogoIcon className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-gray-600">
+                <a href="https://www.linkedin.com/in/brynpryl" className="text-gray-400 hover:text-gray-600" target="_blank">
                     <LinkedInLogoIcon className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-gray-600">
-                    <TwitterLogoIcon className="h-6 w-6" />
-                </a>
+                <button
+                    onClick={openModal}
+                    className="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    aria-label="Show email"
+                >
+                    <Mail className="h-6 w-6" />
+                </button>
             </div>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="email-modal">
+                    <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                        <div className="mt-3 text-center">
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">My Email Address</h3>
+                            <div className="mt-2 px-7 py-3">
+                                <p className="text-sm text-gray-500" ref={emailRef}>
+                                    {email}
+                                </p>
+                            </div>
+                            <div className="items-center px-4 py-3">
+                                <button
+                                    onClick={copyToClipboard}
+                                    className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                                >
+                                    {isCopied ? (
+                                        <>
+                                            <Check className="w-5 h-5 inline mr-2" />
+                                            Copied!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Copy className="w-5 h-5 inline mr-2" />
+                                            Copy to Clipboard
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                            <div className="items-center px-4 py-3">
+                                <button
+                                    onClick={closeModal}
+                                    className="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md w-full shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

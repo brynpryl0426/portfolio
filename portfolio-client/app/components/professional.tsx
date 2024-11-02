@@ -1,6 +1,6 @@
 import { CodeIcon, GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
-import { BriefcaseIcon, Code, Mail } from "lucide-react"
-import { useState } from 'react'
+import { BriefcaseIcon, Check, Code, Copy, Mail } from "lucide-react"
+import { useEffect, useRef, useState } from 'react'
 
 export function Skills() {
     const skillCategories = [
@@ -229,6 +229,37 @@ export function Projects() {
 }
 
 export function Contact() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isCopied, setIsCopied] = useState(false)
+    const emailRef = useRef(null)
+
+    const email = "brynprylbandiola@gmail.com" // Replace with your actual email
+
+    const openModal = () => setIsModalOpen(true)
+    const closeModal = () => setIsModalOpen(false)
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(email).then(() => {
+            setIsCopied(true)
+            setTimeout(() => setIsCopied(false), 2000) // Reset copied state after 2 seconds
+        })
+    }
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                closeModal()
+            }
+        }
+
+        if (isModalOpen) {
+            document.addEventListener('keydown', handleKeyDown)
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [isModalOpen])
     return (
         <div id="contact" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
@@ -238,21 +269,62 @@ export function Contact() {
                         I'm always open to new opportunities and collaborations. Feel free to reach out to me through any of the following channels:
                     </p>
                     <div className="flex justify-center space-x-6">
-                        <a href="#" className="text-gray-400 hover:text-gray-500">
+                        <a href="https://github.com/brynpryl0426" className="text-gray-400 hover:text-gray-500">
                             <span className="sr-only">GitHub</span>
                             <GitHubLogoIcon className="h-8 w-8" />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-500">
+                        <a href="https://www.linkedin.com/in/brynpryl" className="text-gray-400 hover:text-gray-500">
                             <span className="sr-only">LinkedIn</span>
                             <LinkedInLogoIcon className="h-8 w-8" />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-500">
+                        <button onClick={openModal} className="text-gray-400 hover:text-gray-500">
                             <span className="sr-only">Email</span>
                             <Mail className="h-8 w-8" />
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="email-modal">
+                    <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                        <div className="mt-3 text-center">
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">My Email Address</h3>
+                            <div className="mt-2 px-7 py-3">
+                                <p className="text-sm text-gray-500" ref={emailRef}>
+                                    {email}
+                                </p>
+                            </div>
+                            <div className="items-center px-4 py-3">
+                                <button
+                                    onClick={copyToClipboard}
+                                    className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                                >
+                                    {isCopied ? (
+                                        <>
+                                            <Check className="w-5 h-5 inline mr-2" />
+                                            Copied!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Copy className="w-5 h-5 inline mr-2" />
+                                            Copy to Clipboard
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                            <div className="items-center px-4 py-3">
+                                <button
+                                    onClick={closeModal}
+                                    className="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md w-full shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
