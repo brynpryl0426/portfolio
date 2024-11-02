@@ -58,35 +58,24 @@ export function Skills() {
 export function WorkExperience() {
     const experiences = [
         {
-            title: "Senior Full Stack Developer",
-            company: "Tech Innovators Inc.",
-            period: "2020 - Present",
+            title: "Application Developer",
+            company: "Seven Seven Global Services, Inc.",
+            period: "2022 - Present",
             responsibilities: [
-                "Lead a team of 5 developers in building and maintaining large-scale web applications",
-                "Implemented microservices architecture using Node.js and Docker, improving system scalability",
-                "Optimized database queries and implemented caching strategies, resulting in a 40% performance improvement",
+                "Design, implement, and maintain APIs to support core features, ensuring efficient data exchange and service interoperability.",
+                "Integrate and replace third-party services to enhance functionality and improve system capabilities.",
+                "Configure and manage Docker containers and deployment processes for seamless production and staging rollouts.",
+                "Collaborate with cross-functional teams to define, design, and ship new features.",
+                "Coordinate deployment files and settings across multiple integrations and services for efficient resource management.",
+                "Improve application performance through caching strategies and optimized data handling practices.",
+                "Customize and update UI components to align with user needs and system requirements.",
+                "Troubleshoot and resolve issues related to data processing, user inputs, and system interactions.",
+                "Address logical errors and improve error-handling protocols to ensure data accuracy and application stability.",
+                "Implement access control measures and update security settings, such as CORS configurations, to safeguard application data.",
+                "Handle database migrations and schema changes to accommodate new features and system updates.",
+                "Utilize version control systems, such as Git, to manage codebase and track changes across multiple branches.",
             ],
-        },
-        {
-            title: "Full Stack Developer",
-            company: "WebSolutions Co.",
-            period: "2018 - 2020",
-            responsibilities: [
-                "Developed and maintained multiple client websites using React and Express.js",
-                "Integrated third-party APIs and implemented OAuth 2.0 for secure authentication",
-                "Collaborated with UX designers to implement responsive and accessible user interfaces",
-            ],
-        },
-        {
-            title: "Junior Developer",
-            company: "StartUp Dynamics",
-            period: "2016 - 2018",
-            responsibilities: [
-                "Assisted in the development of a mobile-first web application using Vue.js and Firebase",
-                "Implemented unit tests and participated in code reviews to ensure code quality",
-                "Contributed to the company's internal tool for project management and time tracking",
-            ],
-        },
+        }
     ]
 
     return (

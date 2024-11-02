@@ -60,11 +60,9 @@ export function Description() {
             <div className="max-w-3xl mx-auto profile">
                 <h2 className="text-3xl font-extrabold text-foreground-1 mb-4">About Me</h2>
                 <p className="text-lg text-foreground-2">
-                    I'm a passionate Full Stack Developer with 5 years of experience in building web applications.
-                    I specialize in JavaScript, React, Node.js, and AWS cloud services. My goal is to create
+                    I'm a passionate Full Stack Developer with 2 years of experience in building web applications.
+                    I specialize in JavaScript, React, Angular, Spring Boot, Django, and AWS cloud services. My goal is to create
                     efficient, scalable, and user-friendly applications that solve real-world problems.
-                    When I'm not coding, you can find me exploring new technologies, contributing to open-source
-                    projects, or enjoying outdoor activities.
                 </p>
             </div>
         </div>
