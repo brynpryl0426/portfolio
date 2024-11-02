@@ -6,42 +6,42 @@ export function Skills() {
     const skillCategories = [
         {
             category: "Programming Languages",
-            skills: ["JavaScript", "Python", "Java", "C#", "TypeScript"],
+            skills: ["Java", "Python", "C#", "TypeScript", "JavaScript"],
         },
         {
             category: "Frontend",
-            skills: ["React", "Vue.js", "HTML5", "CSS3", "Sass", "Tailwind CSS"],
+            skills: ["Angular", "React", "HTML5", "CSS3"],
         },
         {
             category: "Backend",
-            skills: ["Node.js", "Express", "Django", "ASP.NET Core"],
+            skills: ["Spring Boot", "Django"],
         },
         {
             category: "Databases",
-            skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
+            skills: ["MongoDB", "PostgreSQL", "MySQL"],
         },
         {
             category: "Cloud & DevOps",
-            skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Git"],
+            skills: ["AWS", "Terraform", "Docker", "Git"],
         },
     ]
 
     return (
         <div id="skills" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
+                <h2 className="text-3xl font-extrabold text-foreground-2 mb-8 flex items-center">
                     <Code className="mr-2" />
                     Skills
                 </h2>
                 <div className="space-y-8">
                     {skillCategories.map((category, index) => (
                         <div key={index}>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">{category.category}</h3>
+                            <h3 className="text-xl font-bold text-foreground-1 mb-2">{category.category}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {category.skills.map((skill, skillIndex) => (
                                     <span
                                         key={skillIndex}
-                                        className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium"
+                                        className="bg-background-2 text-foreground-2 px-3 py-1 rounded-full text-sm font-medium"
                                     >
                                         {skill}
                                     </span>
@@ -92,17 +92,17 @@ export function WorkExperience() {
     return (
         <div id="experience" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
+                <h2 className="text-3xl font-extrabold text-foreground-2 mb-8 flex items-center">
                     <BriefcaseIcon className="mr-2" />
                     Work Experience
                 </h2>
                 <div className="space-y-12">
                     {experiences.map((exp, index) => (
-                        <div key={index} className="border-l-4 border-indigo-600 pl-4 pb-4">
-                            <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>
-                            <p className="text-gray-600">{exp.company}</p>
-                            <p className="text-gray-500 mb-2">{exp.period}</p>
-                            <ul className="list-disc list-inside text-gray-500">
+                        <div key={index} className="border-l-4 border-zinc-100 pl-4 pb-4">
+                            <h3 className="text-xl font-bold text-foreground-1">{exp.title}</h3>
+                            <p className="text-foreground-2">{exp.company}</p>
+                            <p className="text-foreground-3 mb-2">{exp.period}</p>
+                            <ul className="list-disc list-inside text-zinc-300">
                                 {exp.responsibilities.map((resp, respIndex) => (
                                     <li key={respIndex}>{resp}</li>
                                 ))}
@@ -116,50 +116,119 @@ export function WorkExperience() {
 }
 
 export function Projects() {
-    const [activeCategory, setActiveCategory] = useState('All')
-    const categories = ['All', 'AWS', 'Java', 'Python', 'C#']
+    const [activeCategories, setActiveCategories] = useState<string[]>(['All'])
+    const allCategories = ['All', 'Web', 'Mobile', 'Desktop', 'AWS', 'API', 'Data Analysis']
 
     const projects = [
-        { id: 1, title: 'AWS Lambda Function', description: 'Serverless function for image processing', category: 'AWS' },
-        { id: 2, title: 'Java Spring Boot API', description: 'RESTful API for a blog platform', category: 'Java' },
-        { id: 3, title: 'Python Data Analysis', description: 'Data visualization using Pandas and Matplotlib', category: 'Python' },
-        { id: 4, title: 'C# Desktop Application', description: 'Windows Forms app for inventory management', category: 'C#' },
-        { id: 5, title: 'AWS S3 File Manager', description: 'Web interface for managing S3 buckets', category: 'AWS' },
-        { id: 6, title: 'Java Android App', description: 'Mobile app for task management', category: 'Java' },
+        {
+            id: 1,
+            title: 'AWS Lambda Function',
+            description: 'Serverless function for image processing',
+            categories: ['Web', 'AWS'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['AWS Lambda', 'Node.js', 'Sharp.js']
+        },
+        {
+            id: 2,
+            title: 'Java Spring Boot API',
+            description: 'RESTful API for a blog platform',
+            categories: ['Web', 'API'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker']
+        },
+        {
+            id: 3,
+            title: 'Python Data Analysis Dashboard',
+            description: 'Interactive dashboard for data visualization',
+            categories: ['Web', 'Data Analysis'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['Python', 'Pandas', 'Plotly', 'Dash']
+        },
+        {
+            id: 4,
+            title: 'C# Desktop Application',
+            description: 'Windows Forms app for inventory management',
+            categories: ['Desktop'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['C#', '.NET Framework', 'Windows Forms', 'SQLite']
+        },
+        {
+            id: 5,
+            title: 'React Native Mobile App',
+            description: 'Cross-platform mobile app for task management',
+            categories: ['Mobile'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['React Native', 'Expo', 'Redux', 'Firebase']
+        },
+        {
+            id: 6,
+            title: 'Vue.js SPA',
+            description: 'Single Page Application for e-commerce',
+            categories: ['Web'],
+            image: '/placeholder.svg?height=200&width=300',
+            technologies: ['Vue.js', 'Vuex', 'Tailwind CSS', 'Stripe API']
+        },
     ]
 
-    const filteredProjects = activeCategory === 'All'
+    const toggleCategory = (category: string) => {
+        setActiveCategories(prev => {
+            if (category === 'All') {
+                return ['All'];
+            }
+            const newCategories = prev.includes(category)
+                ? prev.filter(c => c !== category)
+                : [...prev.filter(c => c !== 'All'), category];
+            return newCategories.length === 0 ? ['All'] : newCategories;
+        });
+    };
+
+    const filteredProjects = activeCategories.includes('All')
         ? projects
-        : projects.filter(project => project.category === activeCategory)
+        : projects.filter(project =>
+            project.categories.some(category => activeCategories.includes(category))
+        );
 
     return (
         <div id="projects" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-8">My Projects</h2>
+                <h2 className="text-3xl font-extrabold text-foreground-1 mb-8">My Projects</h2>
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    {categories.map((category) => (
+                    {allCategories.map((category) => (
                         <button
                             key={category}
-                            onClick={() => setActiveCategory(category)}
-                            className={`px-4 py-2 rounded-full ${activeCategory === category
-                                ? 'bg-indigo-600 text-white'
-                                : 'bg-background text-gray-700 hover:bg-gray-100'
+                            onClick={() => toggleCategory(category)}
+                            className={`px-4 py-2 rounded-full ${activeCategories.includes(category)
+                                ? 'bg-background-3 text-foreground-3'
+                                : 'bg-background-1 text-foreground-2 hover:bg-background-2 hover:text-foreground-3'
                                 }`}
+                            aria-pressed={activeCategories.includes(category)}
                         >
                             {category}
                         </button>
                     ))}
                 </div>
-                <div className="grid gap-8 grid-cols-1 sm:grid-cols-2  lg:grid-cols-3">
+                <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {filteredProjects.map((project) => (
-                        <div key={project.id} className="bg-background overflow-hidden shadow rounded-lg">
-                            <div className="p-6">
-                                <h3 className="text-lg font-medium text-gray-900">{project.title}</h3>
+                        <div key={project.id} className="bg-card overflow-hidden shadow rounded-lg flex flex-col">
+                            <div className="relative h-48 w-full">
+                                <img src={project.image} alt={`Screenshot of ${project.title}`} className="h-48 w-full object-cover" />
+                            </div>
+                            <div className="p-6 flex-grow">
+                                <h3 className="text-lg font-medium text-foreground-2">{project.title}</h3>
                                 <p className="mt-2 text-sm text-gray-500">{project.description}</p>
-                                <div className="mt-4">
-                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                                        {project.category}
-                                    </span>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {project.categories.map((category, index) => (
+                                        <span key={index} className="inline-block bg-indigo-100 text-indigo-800 rounded-full px-3 py-1 text-sm font-semibold">
+                                            {category}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {project.technologies.map((tech, index) => (
+                                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                                            {tech}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -174,9 +243,9 @@ export function Contact() {
     return (
         <div id="contact" className="bg-background py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-8">Contact Me</h2>
+                <h2 className="text-3xl font-extrabold text-foreground mb-8">Contact Me</h2>
                 <div className="flex flex-col items-center justify-center space-y-4">
-                    <p className="text-lg text-gray-500 text-center max-w-2xl">
+                    <p className="text-lg text-foreground-2 text-center max-w-2xl">
                         I'm always open to new opportunities and collaborations. Feel free to reach out to me through any of the following channels:
                     </p>
                     <div className="flex justify-center space-x-6">

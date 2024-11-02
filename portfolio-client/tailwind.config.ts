@@ -14,10 +14,10 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)',
   			card: {
-  				DEFAULT: 'hsl(var(--card))',
+  				DEFAULT: 'var(--card)',
   				foreground: 'hsl(var(--card-foreground))'
   			},
   			popover: {
@@ -53,7 +53,14 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			'background-1': 'var(--background-1)',
+			'background-2': 'var(--background-2)',
+			'background-3': 'var(--background-3)',
+			
+			'foreground-1': 'var(--foreground-1)',
+			'foreground-2': 'var(--foreground-2)',
+			'foreground-3': 'var(--foreground-3)',
   		}
   	}
   },
