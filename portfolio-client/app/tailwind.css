@@ -13,8 +13,8 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: #F7F7F7;
+    --foreground: #8B2C1F;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -38,7 +38,30 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    --background-1: #F3F4F6;
+    /* Light Gray */
+    --background-2: #E2E8F0;
+    /* Lighter Gray */
+    --background-3: #CBD5E0;
+    /* Gray */
+    --background-4: #A0AEC0;
+    /* Medium Gray */
+
+    --foreground-1: #bb4430;
+    /* Keeping this as your accent color */
+    --foreground-2: #2C7A7B;
+    /* Muted teal */
+    --foreground-3: #4A5568;
+    /* Darker Gray for text */
+    --foreground-4: #2f2f2f;
+    /* Darker tone for strong contrast */
+
+    --opacity-3: rgba(255, 255, 255, 0.8);
+    /* Lightened opacity background */
+
   }
+
   .dark {
     --background: #231f20;
     --foreground: #bb4430;
@@ -68,10 +91,14 @@ body {
     --background-1: #323232;
     --background-2: #2D3748;
     --background-3: #4A5568;
+    --background-4: #365789;
 
     --foreground-1: #bb4430;
     --foreground-2: #7ebdc2;
     --foreground-3: #f3dfa2;
+    --foreground-4: #ffffff;
+
+    --opacity-3: rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -79,6 +106,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
