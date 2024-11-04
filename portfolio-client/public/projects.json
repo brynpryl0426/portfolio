@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "title": "Event Attendance Management System",
+        "description": "Web application for managing event attendance",
+        "categories": [
+            "Web",
+            "AWS"
+        ],
+        "images": [
+            "./event-mgmt/1.png",
+            "./event-mgmt/2.png",
+            "./event-mgmt/3.png",
+            "./event-mgmt/4.png"
+        ],
+        "technologies": [
+            "AWS EC2",
+            "Load Balancer",
+            "RDS",
+            "Django",
+            "React"
+        ],
+        "longDescription": "This project is a web application built with Django and React. It allows event organizers to manage attendance, check-in attendees, and generate reports. The application is deployed on AWS EC2 instances with a load balancer and RDS database for scalability and reliability.",
+        "challenges": "One of the challenges faced in this project was designing the architecture for high availability and fault tolerance. The application needed to handle high traffic and provide a seamless user experience for event organizers and attendees. To address this challenge, the application was deployed on AWS EC2 instances with a load balancer to distribute traffic and ensure uptime.",
+        "outcomes": "The web application was successfully deployed and integrated into the event management workflow. It improved efficiency and accuracy by providing a centralized platform for managing attendance and generating reports. The application enhanced scalability and reliability by leveraging AWS services for high availability and fault tolerance."
+    }
+]

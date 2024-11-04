@@ -1,5 +1,5 @@
 import { CodeIcon, GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
-import { BriefcaseIcon, Check, ChevronLeft, ChevronRight, Code, Copy, ExternalLink, Mail, X } from "lucide-react"
+import { BriefcaseIcon, Check, ChevronLeft, ChevronLeftCircle, ChevronRight, ChevronRightCircle, ChevronsLeft, ChevronsRight, Code, Copy, ExternalLink, Mail, X } from "lucide-react"
 import { useEffect, useRef, useState } from 'react'
 
 export function Skills() {
@@ -122,74 +122,14 @@ export function Projects() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null)
     const allCategories = ['All', 'Web', 'Mobile', 'Desktop', 'AWS', 'API', 'Data Analysis']
 
-    const projects = [
-        {
-            id: 1,
-            title: 'AWS Lambda Function',
-            description: 'Serverless function for image processing',
-            categories: ['Web', 'AWS'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['AWS Lambda', 'Node.js', 'Sharp.js'],
-            longDescription: 'This project is a serverless function that processes images uploaded to an S3 bucket. It generates thumbnails and optimizes the images for web use. The function is triggered by an S3 event and uses the Sharp.js library for image processing.',
-            challenges: 'One of the challenges faced in this project was optimizing the function for performance and cost efficiency. The function needed to process images quickly and efficiently to provide a seamless user experience. To address this challenge, the function was optimized to run in parallel and use memory-efficient algorithms for image processing.',
-            outcomes: 'The serverless function was successfully deployed and integrated into the existing application infrastructure. It improved the image processing workflow by reducing the time and resources required to generate thumbnails and optimize images. The function also reduced costs by scaling based on demand and only running when triggered by an S3 event.'
-        },
-        {
-            id: 2,
-            title: 'Java Spring Boot API',
-            description: 'RESTful API for a blog platform',
-            categories: ['Web', 'API'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
-            longDescription: 'This project is a RESTful API built with Java Spring Boot. It provides endpoints for creating, updating, and deleting blog posts. The API is secured with JWT authentication and uses a PostgreSQL database. The application is containerized with Docker for easy deployment.',
-            challenges: 'One of the challenges faced in this project was designing the database schema to support complex relationships between blog posts, users, and comments. The schema needed to be flexible and scalable to accommodate future features and system updates. To address this challenge, the schema was normalized and indexed for efficient data retrieval and storage.',
-            outcomes: 'The RESTful API was successfully deployed and integrated into the blog platform. It improved the user experience by providing a seamless interface for creating and managing blog posts. The API also enhanced security by implementing JWT authentication and access control measures. The application was containerized with Docker for easy deployment and scaling.'
-        },
-        {
-            id: 3,
-            title: 'Python Data Analysis Dashboard',
-            description: 'Interactive dashboard for data visualization',
-            categories: ['Web', 'Data Analysis'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['Python', 'Pandas', 'Plotly', 'Dash'],
-            longDescription: 'This project is an interactive dashboard built with Python. It uses the Pandas library for data manipulation and the Plotly library for data visualization. The dashboard is created with the Dash framework and provides insights into key metrics and trends in the data.',
-            challenges: 'One of the challenges faced in this project was optimizing the dashboard for performance and responsiveness. The dashboard needed to load quickly and display data in real-time to provide a seamless user experience. To address this challenge, the data processing and visualization components were optimized for speed and efficiency.',
-            outcomes: 'The interactive dashboard was successfully deployed and integrated into the data analysis workflow. It improved data visualization and analysis by providing a user-friendly interface for exploring key metrics and trends. The dashboard enhanced collaboration and decision-making by enabling stakeholders to interact with the data and gain insights in real-time.'
-        },
-        {
-            id: 4,
-            title: 'C# Desktop Application',
-            description: 'Windows Forms app for inventory management',
-            categories: ['Desktop'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['C#', '.NET Framework', 'Windows Forms', 'SQLite'],
-            longDescription: 'This project is a Windows Forms application built with C#. It provides functionality for managing inventory items, tracking stock levels, and generating reports. The application uses an SQLite database for data storage and retrieval.',
-            challenges: 'One of the challenges faced in this project was designing the user interface to be intuitive and user-friendly. The application needed to provide a seamless experience for users to manage inventory items and generate reports. To address this challenge, the UI components were designed with a focus on usability and accessibility.',
-            outcomes: 'The Windows Forms application was successfully deployed and integrated into the inventory management workflow. It improved efficiency and accuracy by providing a centralized platform for managing inventory items and tracking stock levels. The application enhanced reporting and decision-making by generating detailed reports on inventory data and trends.'
-        },
-        {
-            id: 5,
-            title: 'React Native Mobile App',
-            description: 'Cross-platform mobile app for task management',
-            categories: ['Mobile'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['React Native', 'Expo', 'Redux', 'Firebase'],
-            longDescription: 'This project is a cross-platform mobile app built with React Native. It allows users to create, update, and delete tasks, set reminders, and track progress. The app uses Redux for state management and Firebase for authentication and data storage.',
-            challenges: 'One of the challenges faced in this project was optimizing the app for performance and responsiveness. The app needed to load quickly and provide a seamless user experience on both iOS and Android devices. To address this challenge, the app components were optimized for speed and efficiency, and the UI was designed with a focus on usability and accessibility.',
-            outcomes: 'The cross-platform mobile app was successfully deployed and integrated into the task management workflow. It improved productivity and organization by providing a user-friendly interface for creating and managing tasks. The app enhanced collaboration and communication by enabling users to set reminders and track progress on tasks in real-time.'
-        },
-        {
-            id: 6,
-            title: 'Vue.js SPA',
-            description: 'Single Page Application for e-commerce',
-            categories: ['Web'],
-            images: ['/placeholder.svg?height=200&width=300'],
-            technologies: ['Vue.js', 'Vuex', 'Tailwind CSS', 'Stripe API'],
-            longDescription: 'This project is a single-page application built with Vue.js. It provides an e-commerce platform for selling products online. The application uses Vuex for state management and integrates with the Stripe API for payment processing.',
-            challenges: 'One of the challenges faced in this project was optimizing the application for performance and scalability. The application needed to handle high traffic and provide a seamless user experience for customers. To address this challenge, the application components were optimized for speed and efficiency, and the UI was designed with a focus on usability and accessibility.',
-            outcomes: 'The single-page application was successfully deployed and integrated into the e-commerce platform. It improved sales and customer engagement by providing a user-friendly interface for browsing products and making purchases. The application enhanced security and reliability by implementing secure payment processing with the Stripe API.'
-        },
-    ]
+    const [projects, setProjects] = useState<Project[]>([]);
+
+    useEffect(() => {
+        fetch('./projects.json')  // Update the path based on your project structure
+            .then(response => response.json())
+            .then(data => setProjects(data))
+            .catch(error => console.error('Error loading projects:', error));
+    }, []);
 
     const toggleCategory = (category: string) => {
         setActiveCategories(prev => {
@@ -322,6 +262,7 @@ function ProjectCard({ project, openProjectDetails }) {
 
 function ProjectModal({ project, closeProjectDetails }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isPanelVisible, setIsPanelVisible] = useState(true);
 
     const nextImage = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.images.length);
@@ -329,6 +270,10 @@ function ProjectModal({ project, closeProjectDetails }) {
 
     const prevImage = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex - 1 + project.images.length) % project.images.length);
+    };
+
+    const togglePanel = () => {
+        setIsPanelVisible(!isPanelVisible);
     };
 
     return (
@@ -362,30 +307,46 @@ function ProjectModal({ project, closeProjectDetails }) {
                         className="absolute top-4 right-4 bg-background bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none z-20"
                         aria-label="Close modal"
                     >
-                        <X className="h-6 w-6 text-foreground-4" />
+                        <X className="h-6 w-6 text-forground-4" />
+                    </button>
+
+                    {/* Toggle Panel Button */}
+                    <button
+                        onClick={togglePanel}
+                        className={`absolute top-4 ${isPanelVisible ? 'right-16' : 'left-4'} bg-background bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none z-20 transition-all duration-300`}
+                        aria-label={isPanelVisible ? "Hide project details" : "Show project details"}
+                    >
+                        {isPanelVisible ? (
+                            <ChevronsRight className="h-6 w-6 text-foreground-4" />
+                        ) : (
+                            <ChevronsLeft className="h-6 w-6 text-foreground-4" />
+                        )}
                     </button>
 
                     {/* Content Panel */}
-                    <div className="absolute top-0 right-0 w-full md:w-1/2 lg:w-2/5 h-full bg-background bg-opacity-3 p-6 overflow-y-auto">
+                    <div
+                        className={`absolute top-0 right-0 w-full md:w-1/2 lg:w-2/5 h-full bg-background bg-opacity-3 p-6 overflow-y-auto transition-all duration-300 ease-in-out ${isPanelVisible ? 'translate-x-0' : 'translate-x-full'
+                            }`}
+                    >
                         <div className="space-y-6">
-                            <h3 className="text-2xl font-bold text-foreground-1">{project.title}</h3>
+                            <h3 className="text-2xl font-bold text-foreground-3">{project.title}</h3>
 
                             <div>
                                 <p className="text-foreground-4">{project.longDescription}</p>
                             </div>
 
                             <div>
-                                <h4 className="text-lg font-semibold text-foreground-1 mb-2">Challenges:</h4>
+                                <h4 className="text-lg font-semibold text-foreground-2 mb-2">Challenges:</h4>
                                 <p className="text-foreground-4">{project.challenges}</p>
                             </div>
 
                             <div>
-                                <h4 className="text-lg font-semibold text-foreground-1 mb-2">Outcomes:</h4>
+                                <h4 className="text-lg font-semibold text-foreground-2 mb-2">Outcomes:</h4>
                                 <p className="text-foreground-4">{project.outcomes}</p>
                             </div>
 
                             <div>
-                                <h4 className="text-lg font-semibold text-foreground-1 mb-2">Technologies Used:</h4>
+                                <h4 className="text-lg font-semibold text-foreground-2 mb-2">Technologies Used:</h4>
                                 <div className="flex flex-wrap gap-2">
                                     {project.technologies.map((tech, index) => (
                                         <span key={index} className="inline-block bg-background-2 rounded-full px-3 py-1 text-sm font-semibold text-foreground-2">
@@ -402,7 +363,7 @@ function ProjectModal({ project, closeProjectDetails }) {
                         {project.images.map((_, index) => (
                             <div
                                 key={index}
-                                className={`h-2 w-2 rounded-full ${index === currentImageIndex ? 'bg-background' : 'bg-white bg-opacity-50'
+                                className={`h-2 w-2 rounded-full ${index === currentImageIndex ? 'bg-background-1' : 'bg-background-4'
                                     }`}
                             />
                         ))}
