@@ -120,7 +120,7 @@ export function Projects() {
     }
 
     const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-    const allCategories = ['All', 'Web', 'Mobile', 'Desktop', 'AWS', 'API', 'Data Analysis']
+    const allCategories = ['All', 'Web', 'AWS', 'API', 'Database', 'Mobile']
 
     const [projects, setProjects] = useState<Project[]>([]);
 
@@ -204,7 +204,12 @@ function ProjectCard({ project, openProjectDetails }) {
     return (
         <div className="bg-card overflow-hidden shadow rounded-lg flex flex-col">
             <div className="relative h-48 w-full">
-                <img src={project.images[currentImageIndex]} alt={`Screenshot ${currentImageIndex + 1} of ${project.title}`} className="h-48 w-full object-cover" />
+                <div className="relative h-48 w-full bg-zinc-200">
+                    <img
+                        src={project.images[currentImageIndex]}
+                        alt={`Screenshot ${currentImageIndex + 1} of ${project.title}`}
+                        className="h-48 w-full object-contain"
+                    /></div>
                 <button
                     onClick={prevImage}
                     className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-1 hover:bg-opacity-75 focus:outline-none"
@@ -282,7 +287,9 @@ function ProjectModal({ project, closeProjectDetails }) {
                 <div className="relative w-full h-full">
                     {/* Background Image */}
                     <div className="absolute inset-0">
-                        <img src={project.images[currentImageIndex]} alt={`Screenshot ${currentImageIndex + 1} of ${project.title}`} className="h-full w-full object-cover" />
+                        <div className="h-full w-full bg-zinc-200">
+                        <img src={project.images[currentImageIndex]} alt={`Screenshot ${currentImageIndex + 1} of ${project.title}`} className="h-full w-full object-contain" />
+                        </div>
                     </div>
 
                     {/* Navigation Controls */}
