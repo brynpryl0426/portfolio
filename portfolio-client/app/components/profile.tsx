@@ -19,6 +19,18 @@ export function Hero() {
                         <p className="mt-3 max-w-md mx-auto text-base text-foreground-3 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                             Full Stack Developer | Cloud Enthusiast | Continuous Learner
                         </p>
+                        <div className="flex flex-wrap gap-4 pt-4 pt-8">
+                            <i className="devicon-terraform-plain-wordmark colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-amazonwebservices-line-wordmark colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-docker-plain-wordmark colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-linux-plain text-amber-600 text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-java-plain-wordmark colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-angular-plain text-red-600 text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-spring-original-wordmark colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-django-plain text-green-800 text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-djangorest-plain colored text-3xl sm:text-4xl md:text-5xl"></i>
+                            <i className="devicon-git-plain colored text-3xl sm:text-4xl md:text-5xl"></i>
+                        </div>
                     </div>
                     <div className="md:col-span-1">
                         <ProfileCard />

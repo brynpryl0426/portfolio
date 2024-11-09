@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import styles from "./tailwind.css?url"
 import { ThemeProvider } from "next-themes";
+import "devicon/devicon.min.css"
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
