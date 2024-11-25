@@ -8,7 +8,8 @@
     "dev": "remix vite:dev --port 3000",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "postbuild": "shx cp -r ./build/client/index.html ../portfolio-server/portfolio/templates/ && shx cp -r ./build/client/static ../portfolio-server/portfolio && shx cp -r ./build/client/static_assets ../portfolio-server"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.1.0",

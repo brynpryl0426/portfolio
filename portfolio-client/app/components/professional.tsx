@@ -125,7 +125,7 @@ export function Projects() {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        fetch('./projects.json')  // Update the path based on your project structure
+        fetch('./static_assets/projects.json')  // Update the path based on your project structure
             .then(response => response.json())
             .then(data => setProjects(data))
             .catch(error => console.error('Error loading projects:', error));

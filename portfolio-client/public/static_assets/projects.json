@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "title": "Event Attendance Management System",
+        "description": "Web application for managing event attendance",
+        "categories": [
+            "Web",
+            "AWS"
+        ],
+        "images": [
+            "./static_assets/event-mgmt/architecture.png",
+            "./static_assets/event-mgmt/1.png",
+            "./static_assets/event-mgmt/2.png",
+            "./static_assets/event-mgmt/3.png",
+            "./static_assets/event-mgmt/4.png"
+        ],
+        "technologies": [
+            "AWS EC2",
+            "Load Balancer",
+            "RDS",
+            "Django",
+            "React"
+        ],
+        "longDescription": "This project is a web application built with Django and React. It allows event organizers to manage attendance, check-in attendees, and generate reports. The application is deployed on AWS EC2 instances with a load balancer and RDS database for scalability and reliability.",
+        "challenges": "One of the challenges faced in this project was designing the architecture for high availability and fault tolerance. The application needed to handle high traffic and provide a seamless user experience for event organizers and attendees. To address this challenge, the application was deployed on AWS EC2 instances with a load balancer to distribute traffic and ensure uptime.",
+        "outcomes": "The web application was successfully deployed and integrated into the event management workflow. It improved efficiency and accuracy by providing a centralized platform for managing attendance and generating reports. The application enhanced scalability and reliability by leveraging AWS services for high availability and fault tolerance."
+    },
+    {
+        "id": 2,
+        "title": "Online Traffic Violation Recording and Monitoring System",
+        "description": "Web application for recording and monitoring traffic violations",
+        "categories": [
+            "AWS",
+            "Web",
+            "Database"
+        ],
+        "images": [
+            "./static_assets/otvrms/1.png",
+            "./static_assets/otvrms/2.png",
+            "./static_assets/otvrms/3.png",
+            "./static_assets/otvrms/4.png"
+        ],
+        "technologies": [
+            "Django",
+            "PostgreSQL",
+            "Bootstrap",
+            "JavaScript"
+        ],
+        "longDescription": "This project is a web application built with Django and PostgreSQL. It allows users to record and monitor traffic violations, generate reports, and track violators. The application provides a user-friendly interface for managing traffic data and enforcing regulations.",
+        "challenges": "One of the challenges faced in this project was designing a database schema to store traffic violation data efficiently. The application needed to handle large volumes of data and provide fast query responses for reporting and monitoring. To address this challenge, the database schema was optimized for performance and scalability.",
+        "outcomes": "The web application was successfully deployed and integrated into the traffic management system. It improved data accuracy and enforcement by providing a centralized platform for recording and monitoring traffic violations. The application enhanced efficiency and compliance by automating data entry and report generation."
+    },
+    {
+        "id": 3,
+        "title": "Life Plan",
+        "description": "Web application for managing life plan",
+        "categories": [
+            "AWS",
+            "Web",
+            "Database"
+        ],
+        "images": [
+            "./static_assets/life-plan/1.png",
+            "./static_assets/life-plan/2.png",
+            "./static_assets/life-plan/3.png",
+            "./static_assets/life-plan/4.png"
+        ],
+        "technologies": [
+            "Django",
+            "PostgreSQL",
+            "Bootstrap",
+            "JavaScript"
+        ],
+        "longDescription": "This project is a web application built with Django and PostgreSQL. It allows users to plan and manage their arrangements and store important documents. The application provides a secure and user-friendly platform for organizing end-of-life preferences.",
+        "challenges": "One of the challenges faced in this project was designing a data model to store arrangements and documents securely. The application needed to protect sensitive information and provide access controls for authorized users.",
+        "outcomes": "The web application was successfully deployed and integrated into the planning process. It improved organization and accessibility by providing a centralized platform for managing arrangements and documents. The application enhanced security and privacy by implementing access controls and encryption for sensitive data."
+    }
+]

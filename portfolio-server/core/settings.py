@@ -121,8 +121,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Collected static files
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Includes Remix assets
-    BASE_DIR / 'portfolio/static',  # Includes Vue assets
+    BASE_DIR / 'static',
+   'static_assets'
 ]
 
 # Default primary key field type

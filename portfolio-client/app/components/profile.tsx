@@ -76,7 +76,7 @@ function ProfileCard() {
     return (
         <div className="bg-card p-6 rounded-lg shadow-md">
             <img
-                src="/bryn.jpg"
+                src="/static_assets/bryn.jpg"
                 style={{ height: "150px", width: "150px", objectFit: "cover" }}
                 alt="Profile"
                 className="w-24 h-24 rounded-full mx-auto mb-4"
